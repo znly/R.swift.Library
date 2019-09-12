@@ -25,6 +25,9 @@ public protocol StringResourceType {
   
   /// Comment directly before and/or after the string, if any
   var comment: String? { get }
+
+  /// Returns the translated string
+  func translated() -> String
 }
 
 public struct StringResource: StringResourceType {
@@ -50,5 +53,10 @@ public struct StringResource: StringResourceType {
     self.bundle = bundle
     self.locales = locales
     self.comment = comment
+  }
+
+  /// Returns the translated string
+  public func translated() -> String {
+    return NSLocalizedString(key, tableName: tableName, bundle: bundle, comment: comment ?? "")
   }
 }
