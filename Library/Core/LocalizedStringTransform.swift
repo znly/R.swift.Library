@@ -21,6 +21,7 @@ public struct LocalizedStringTransform {
     self.transform = transform
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   func apply(_ input: String) -> String {
     return transform(input)
   }
