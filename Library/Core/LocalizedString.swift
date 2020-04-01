@@ -9,8 +9,10 @@ public struct LocalizedStringNoArg {
     self.resource = resource
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   public func translated() -> String {
-    return resource.translated()
+    let localized = resource.translated()
+    return LocalizedStringTransform.current.apply(localized)
   }
 }
 
@@ -21,8 +23,10 @@ public struct LocalizedStringOneArg<T: CVarArg> {
     self.resource = resource
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   public func translated(_ arg: T) -> String {
-    return String.localizedStringWithFormat(resource.translated(), arg)
+    let localized = String.localizedStringWithFormat(resource.translated(), arg)
+    return LocalizedStringTransform.current.apply(localized)
   }
 }
 
@@ -33,8 +37,10 @@ public struct LocalizedStringTwoArgs<T: CVarArg, U: CVarArg> {
     self.resource = resource
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   public func translated(_ arg1: T, _ arg2: U) -> String {
-    return String.localizedStringWithFormat(resource.translated(), arg1, arg2)
+    let localized = String.localizedStringWithFormat(resource.translated(), arg1, arg2)
+    return LocalizedStringTransform.current.apply(localized)
   }
 }
 
@@ -45,8 +51,10 @@ public struct LocalizedStringThreeArgs<T: CVarArg, U: CVarArg, V: CVarArg> {
     self.resource = resource
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   public func translated(_ arg1: T, _ arg2: U, _ arg3: V) -> String {
-    return String.localizedStringWithFormat(resource.translated(), arg1, arg2, arg3)
+    let localized = String.localizedStringWithFormat(resource.translated(), arg1, arg2, arg3)
+    return LocalizedStringTransform.current.apply(localized)
   }
 }
 
@@ -57,8 +65,10 @@ public struct LocalizedStringFourArgs<T: CVarArg, U: CVarArg, V: CVarArg, W: CVa
     self.resource = resource
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   public func translated(_ arg1: T, _ arg2: U, _ arg3: V, _ arg4: W) -> String {
-    return String.localizedStringWithFormat(resource.translated(), arg1, arg2, arg3, arg4)
+    let localized = String.localizedStringWithFormat(resource.translated(), arg1, arg2, arg3, arg4)
+    return LocalizedStringTransform.current.apply(localized)
   }
 }
 
@@ -69,7 +79,9 @@ public struct LocalizedStringFiveArgs<T: CVarArg, U: CVarArg, V: CVarArg, W: CVa
     self.resource = resource
   }
 
+  // TODO: @scalbatty replace with `callAsFunction` when building on Swift 5.2
   public func translated(_ arg1: T, _ arg2: U, _ arg3: V, _ arg4: W, _ arg5: X) -> String {
-    return String.localizedStringWithFormat(resource.translated(), arg1, arg2, arg3, arg4, arg5)
+    let localized = String.localizedStringWithFormat(resource.translated(), arg1, arg2, arg3, arg4, arg5)
+    return LocalizedStringTransform.current.apply(localized)
   }
 }
